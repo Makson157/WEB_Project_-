@@ -1,0 +1,16 @@
+--
+-- Файл сгенерирован с помощью SQLiteStudio v3.4.4 в Ср апр 10 17:29:33 2024
+--
+-- Использованная кодировка текста: System
+--
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+-- Таблица: product
+CREATE TABLE IF NOT EXISTS product (id INTEGER PRIMARY KEY, title, price, about TEXT, "delivery date" TEXT, reviews TEXT);
+
+-- Таблица: users
+CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, surname, login TEXT, password TEXT);
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;
