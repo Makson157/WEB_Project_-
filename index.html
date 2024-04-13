@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+
 {% block content %}
-spisok_strok = [['ad', '123123']]
 {% for item in spisok_strok %}
-<div class="card" style="width: 18rem;">
-    <img src={{"item[0]"}} class="card-img-top" alt="...">
+<div align="center">
+    <div class="card" style="width: 35rem;"></div>
+    <img src={{item[0]}} class="card-img-top" alt="..." href="ссылка на товар">
     <div class="card-body">
         <p class="card-text">{{"item[1]"}}</p>
     </div>
