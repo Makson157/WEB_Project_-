@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% set clas = ["rounded float-left", "rounded float-center", "rounded float-right"] %}
+<div align="center" class=".row col-lg-6">
+    {% if tovar %}
+    {% for item in tovar %}
+    <div>
+        <img src={{item.src}} class={{clas[loop.index0%4]}} alt="..." style="width: 18rem;">
+        <p>{{item.title}} р.</p>
+        <p>{{kol[loop.index0]}} шт.</p>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h3 align="center">В корзине пока нет добавленных товаров</h3>
+    {% endif %}
+</div>
+<br>
+<div align="center">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <a href="/zakaz">
+            <button type="button" class="btn btn-success">Оформить заказ</button>
+        </a>
+        <a href="/clear">
+            <button type="button" class="btn btn-secondary">Очистить корзину</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

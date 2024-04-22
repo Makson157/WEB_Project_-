@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div align="center">
+    <div class=".row col-lg-6">
+        <form action="" method="post" novalidate>
+            <h1>РЕГИСТРАЦИЯ</h1>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.name.label }}<br>
+                {{ form.name(class="form-control") }}<br>
+                {% for error in form.name.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+            {% endfor %}
+            </p>
+            <p>
+                {{ form.surname.label }}<br>
+                {{ form.surname(class="form-control") }}<br>
+                {% for error in form.surname.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+            {% endfor %}
+            </p>
+            <p>
+                {{ form.login.label }}<br>
+                {{ form.login(class="form-control") }}<br>
+                {% for error in form.login.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+            {% endfor %}
+            </p>
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(class="form-control", type="password") }}<br>
+                {% for error in form.password.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+            {% endfor %}
+            </p>
+            <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+            <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        </form>
+    </div>
+</div>
+{% endblock %}

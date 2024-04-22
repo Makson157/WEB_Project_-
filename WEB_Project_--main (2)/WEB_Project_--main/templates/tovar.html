@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div align="center">
+    <div class=".row col-lg-6">
+        <div class="card" style="...">
+            <img src={{tovar.src}} class="card-img-top" alt="Фото временно отсутствует" style="width: 24rem">
+            <div class="card-body">
+                <h5 class="card-title">{{tovar.title}}</h5>
+                <p class="card-text">{{tovar.about}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Стоимость: {{tovar.price}} р.</li>
+                <li class="list-group-item">Дата закупки: {{tovar.delivery_date}}</li>
+            </ul>
+            {% if current_user.is_authenticated and current_user == user %}
+            <a href="/addkorzina/{{tovar.id}}" class="btn btn-primary">Добавить в корзину</a>
+            {% else %}
+            <a href="/register" class="btn btn-primary">Добавить в корзину</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

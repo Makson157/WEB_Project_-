@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <title>{{title}}</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="http://127.0.0.1:5000/">Главная</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5000/lk">Личный
+                        кабинет</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:5000/kateg">Товары по категориям</a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:5000/korzina">Корзина</a>
+                </li>
+                <li>
+                    <a class="navbar-brand" href="/lk">{{ current_user.name }}</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="/logout">Выход</a>
+                </li>
+                {% else %}
+                <li>
+                    <a class="nav-link" href="/register">Зарегистрироваться</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="/login">Войти</a>
+                </li>
+                {% endif %}
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Поиск по сайту</button>
+            </form>
+        </div>
+    </div>
+</nav>
+{% block content %} {%endblock%}
+</body>
+</html>

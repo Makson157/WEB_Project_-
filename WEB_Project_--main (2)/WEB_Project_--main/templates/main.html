@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for item in products %}
+<div align="center">
+    <div class=".row col-lg-6">
+        <div class="card">
+            <a href="http://127.0.0.1:5000/tovar/{{item.id}}">
+                <img src={{item.src}} class="card-img-top" alt="Фото временно отсутствует" style="width: 32rem;">
+            </a>
+        <div class="card-body">
+            <p class="card-text">{{item.title}}</p>
+            <p class="card-text">{{item.price}} руб.</p>
+        </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

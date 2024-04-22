@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div align="center">
+    <div class=".row col-lg-6">
+        {% for item in kateg %}
+        <a href="http://127.0.0.1:5000/kategory/{{item.id}}">
+            <button type="button" class="btn btn-primary btn-lg btn-block">
+                {{item.title}}
+            </button>
+            <br>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
